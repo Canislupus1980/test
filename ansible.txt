@@ -1,0 +1,5 @@
+ansible all -m dnf -a "name=python3.11 state=latest" -i environment/template/hosts
+ansible all -m "python3 --version" -i environment/mybank/hosts
+ansible -m ping all -i environment/mybank/hosts
+ansible all -m dnf -a "name=python3-dnf state=present" -b -i environment/template/hosts
+ansible-playbook -i environment/template deploy.yaml
